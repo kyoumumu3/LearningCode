@@ -123,6 +123,25 @@ namespace Komil {
           Console.WriteLine("Quitting...");
           Thread.Sleep(2000);
           break;
+          
+        // Default case (for exception)
+        default :
+        
+          // Create try and catch block
+          try {
+            
+            /* Use throw function to show the custom error.
+            I must use try block because otherwise it won't load throw function.
+            If I somehow found a way to get around this, I will do it. */
+            ArgumentOutOfRangeException err = new ArgumentOutOfRangeException("Cannot process null or out-of-range choice. Try again.");
+            throw err;
+          }
+          
+          catch (Exception f) {
+            Console.WriteLine(f.Message);
+          }
+          
+          break;
       };
       
       // Create goodbye words
